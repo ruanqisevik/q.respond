@@ -1,0 +1,21 @@
+{
+  "name": "q-respond",
+  "version": "1.0.0",
+  "description": "koa customized response middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "respond",
+    "q-respond",
+    "response"
+  ],
+  "author": "Q.Roy",
+  "license": "MIT",
+  "devDependencies": {
+    "koa": "^2.7.0",
+    "typescript": "^3.4.5"
+  }
+}
