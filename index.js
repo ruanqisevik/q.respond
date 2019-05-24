@@ -1,18 +1,38 @@
-const statusCodes = require("./statusCodes");
+const statusCodes = require('./statusCodes')
+const _ = require('lodash')
 
-function qrespond() {
-  return async (ctx, next) => {
-    ctx.res.ok = ({ data = null, code = null, message = null }) => {
-      ctx.status = statusCodes.OK;
-      ctx.body = {
-        data: data,
-        message: message,
-        code: code
-      };
-    };
+function qrespond(options) {
+	const { merge = true, successMessage = null, failureMessage = null } = options
 
-    await next();
-  };
+	return async (ctx, next) => {
+		ctx.res.ok = params => {
+			const defaultParams = {
+				data: null,
+				status: 'success',
+				code: statusCodes.OK,
+				message: successMessage
+			}
+
+			ctx.status = statusCodes.OK
+			ctx.body = genBody(defaultParams, params, merge)
+		}
+
+		ctx.res.error = params => {
+			const defaultParams = {
+				data: null,
+				status: 'failure',
+				message: failureMessage
+			}
+			ctx.status = statusCodes.OK
+			ctx.body = genBody(defaultParams, params, merge)
+		}
+
+		await next()
+	}
 }
 
-module.exports = qrespond;
+function genBody(defaultParams, params, merge) {
+	return merge ? _.extend(defaultParams, params) : params || {}
+}
+
+module.exports = qrespond

@@ -4,7 +4,7 @@
   "description": "koa customized response middleware",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "koa",
@@ -15,7 +15,15 @@
   "author": "Q.Roy",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2",
     "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11"
   }
 }
