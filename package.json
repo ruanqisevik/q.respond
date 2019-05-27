@@ -7,9 +7,10 @@
     "test": "mocha"
   },
   "keywords": [
+    "q-respond",
+    "qrespond",
     "koa",
     "respond",
-    "q-respond",
     "response"
   ],
   "author": "Q.Roy",
