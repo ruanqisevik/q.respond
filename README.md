@@ -6,8 +6,6 @@
 
 该仓库是 Koa response 处理的标准中间件，但该仓库的 response 类型仅仅是符合个人风格的统一格式，不适用于所有业务。
 
-<br>
-
 #### Usage
 
 - install: `npm i --save q-respond`
@@ -42,18 +40,12 @@ const routes = router.get('/ok', ctx => {
 })
 ```
 
-<br>
-
 ### API
 
 | Method (ctx.res.{method_name}) | params       | action                                              |
 | ------------------------------ | ------------ | --------------------------------------------------- |
 | ok                             | data: object | set http status to 200, return json (default: `{}`) |
 | error                          | data: object | set http status to 200, return json (default: `{}`) |
-
-<br>
-
-<br>
 
 ### Options
 
