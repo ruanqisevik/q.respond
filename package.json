@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "koa customized response middleware",
   "main": "index.js",
+  "homepage": "https://github.com/ruanqisevik/q.respond",
   "scripts": {
     "test": "mocha"
   },
