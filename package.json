@@ -1,5 +1,5 @@
 {
-  "name": "q-respond",
+  "name": "q.respond",
   "version": "1.0.0",
   "description": "koa customized response middleware",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "mocha"
   },
   "keywords": [
-    "q-respond",
+    "q.respond",
     "qrespond",
     "koa",
     "respond",
