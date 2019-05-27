@@ -14,17 +14,54 @@
 
 - import and load:
 
-  ```
+```
+const Koa = require('koa')
+const responseHandler = require('q-respond')
+const router = require('./routes')
 
-  ```
+// ...other imports
+
+const app = new Koa()
+
+// you can set default options for responses
+const defaultOptions = {
+  merge: true
+  successMessage: 'operate successfully',
+  errorMessage: 'operate failure'
+}
+
+app.use(responseHandler(defaultOptions))
+app.use(router.routes()).use(router.allowedMethods())
+
+// in your controllers
+const routes = router.get('/ok', ctx => {
+  ctx.res.ok({
+    data: 'ok data',
+    code: 200
+  })
+})
+```
 
 <br>
 
 ### API
 
-| Method (ctx.res.{method_name}) | params                 | action                                              |
-| ------------------------------ | ---------------------- | --------------------------------------------------- |
-| ok                             | data: object or string | set http status to 200, return json (default: `{}`) |
+| Method (ctx.res.{method_name}) | params       | action                                              |
+| ------------------------------ | ------------ | --------------------------------------------------- |
+| ok                             | data: object | set http status to 200, return json (default: `{}`) |
+| error                          | data: object | set http status to 200, return json (default: `{}`) |
+
+<br>
+
+<br>
+
+### Options
+
+| key            | type    | action                                              |
+| -------------- | ------- | --------------------------------------------------- |
+| merge          | boolean | set should merge default options to customized body |
+| successMessage | string  | set default body.message using for ctx.res.ok       |
+| failureMessage | string  | set default body.message using for ctx.res.error    |
 
 <br>
 <!-- 
